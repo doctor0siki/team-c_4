@@ -26,7 +26,7 @@ $app->post('/register/', function (Request $request, Response $response) {
     $user = new User($this->db);
 
     //入力されたメールアドレスの会員が登録済みかどうかをチェックします
-    if ($user->select(array("userid" => $data["userid"]), "", "", 1, false)) {
+    if ($user->select(array("user_id" => $data["user_id"]), "", "", 1, false)) {
 
         //入力項目がマッチしない場合エラーを出す
         $data["error"] = "このメールアドレスは既に会員登録済みです";
