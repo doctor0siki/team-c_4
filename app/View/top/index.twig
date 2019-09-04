@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="page-header text-center">
-                <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">タイトル</h1>
+                <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">飯テロ</h1>
             </div>
             <div class="box">
                 <div class="row">
@@ -28,6 +28,72 @@
             </div>
         </div>
     </div>
+
+    {#ここから表示したい情報を記載します。#}
+        <div class="page-header text-center">
+            <h1>商品一覧</h1>
+        </div>
+        <div class="row">
+            <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">写真</th>
+                        <th scope="col">商品名</th>
+                        <th scope="col">特徴</th>
+                        <th scope="col">価格</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {# 取得した結果分ループする処理です#}
+                    {# コントローラで指定した $data["result"] は Twigでは result として扱えます #}
+                    {# for文でresultの中の一次元目の配列をループで回す形となります #}
+                    {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
+                    <ul class="list-unstyled">
+
+                        <li class="media my-4">
+                            <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img3" class="mr-3" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">List-based media object</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            </div>
+                        </li>
+                        <li class="media">
+                            <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img3" class="mr-3" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">List-based media object</h5>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            </div>
+                        </li>
+                    </ul>
+                    {% for row in result %}
+                      <li class="media">
+                        <div href="/item/detail/{{ row.id }}">
+                            <img src="{{ row.image_url }}" width="200" class="img-fluid">
+                        </div>
+                        <div href="/item/detail/{{ row.id }}">{{ row.name }}</div>
+                        <div class="align-middle" scope="col">
+                      </li>
+                        <tr>
+                            <td class="align-middle" scope="col">
+                                <a href="/item/detail/{{ row.id }}">
+                                    <img src="{{ row.image_url }}" width="200" class="img-fluid">
+                                </a>
+                            </td>
+                            <td class="align-middle" scope="col">
+                                <a href="/item/detail/{{ row.id }}">{{ row.name }}</a>
+                            </td>
+                            <td class="align-middle" scope="col">{{ row.spec }}</td>
+                            <td class="align-middle" scope="col">{{ row.price | number_format }}円</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
