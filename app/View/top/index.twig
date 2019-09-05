@@ -6,73 +6,73 @@
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
-    {# 背景動画を表示させるスタイルを読み込みます。#}
-    <link href="/assets/css/video.css" rel="stylesheet">
+  {# 背景動画を表示させるスタイルを読み込みます。#}
+  <link href="/assets/css/video.css" rel="stylesheet">
 {% endblock %}
 
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="page-header text-center">
-                <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">飯テロリスト</h1>
-            </div>
-            <div class="box">
-                <div class="row">
-                    <div class="col-md-12">
-                        <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
-                        <div id="filter">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {#ここから表示したい情報を記載します。#}
-        <div class="page-header text-center">
-        </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-header text-center">
+        <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">飯テロリスト</h1>
+      </div>
+      <div class="box">
         <div class="row">
-            <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <tbody>
-                    {# 取得した結果分ループする処理です#}
-                    {# コントローラで指定した $data["result"] は Twigでは result として扱えます #}
-                    {# for文でresultの中の一次元目の配列をループで回す形となります #}
-                    {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
-                    <ul class="list-unstyled">
-                    {% for row in result %}
-                      <li class="m-1 mb-4" style="background-color:rgba(255,255,255,0.5);">
-                        <div class="row">
-                          <div class="col-2 d-block mx-auto">
-                            <a class="nav-link" href="/item/list/">
-                              <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
-                            </a>
-                          </div>
-                          <div class="col-10">
-                            <h5 class="mt-0 mb-1">{{ row.title }}</h5>
-                            <div class="row">
-                              <div class="col-4">
-                                <h5 class="mt-0 mb-1">{{ row.user_id }}</h5>
-                              </div>
-                              <div class="col-8 text-right">
-                                <h5 class="mt-0 mb-1">{{ row.date }}</h5>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="d-block mx-auto ">
-                          <a href="/item/detail/1">
-                            <img width="400"  src="/assets/img/{{ row.image_url }}" class="" alt="...">
-                          </a>
-                        </div>
-                      </li>
-
-                    {% endfor %}
-                    </ul>
-                    </tbody>
-                </table>
+          <div class="col-md-12">
+            <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
+            <div id="filter">
             </div>
+          </div>
         </div>
+      </div>
+  </div>
+</div>
+
+{#ここから表示したい情報を記載します。#}
+  <div class="page-header text-center">
+  </div>
+  <div class="row">
+    <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <tbody>
+        {# 取得した結果分ループする処理です#}
+        {# コントローラで指定した $data["result"] は Twigでは result として扱えます #}
+        {# for文でresultの中の一次元目の配列をループで回す形となります #}
+        {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
+        <ul class="list-unstyled">
+        {% for row in result %}
+          <li class="m-1 mb-4" style="background-color:rgba(255,255,255,0.5);">
+            <div class="row">
+              <div class="col-2 d-block mx-auto">
+                <a class="nav-link" href="/item/list/">
+                  <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
+                </a>
+              </div>
+              <div class="col-10">
+                <h5 class="mt-0 mb-1">{{ row.title }}</h5>
+                <div class="row">
+                  <div class="col-4">
+                    <h5 class="mt-0 mb-1">{{ row.user_id }}</h5>
+                  </div>
+                  <div class="col-8 text-right">
+                    <h5 class="mt-0 mb-1">{{ row.date }}</h5>
+                  </div>
+              </div>
+            </div>
+            <div class="d-block mx-auto ">
+              <a href="/item/detail/1">
+                <img width="400"  src="/assets/img/{{ row.image_url }}" class="" alt="...">
+              </a>
+            </div>
+          </li>
+
+        {% endfor %}
+        </ul>
+        </tbody>
+      </table>
+    </div>
+  </div>
 {% endblock %}
