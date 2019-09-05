@@ -89,13 +89,13 @@ class Item extends Dao
         $statement = $this->db->prepare($sql);
 
         //idを指定します
-        $statement->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $statement->bindParam(":user_id", $user_id, PDO::PARAM_STR);
 
         //SQLを実行
         $statement->execute();
 
         //結果レコードを一件取得し、返送
-        return $statement->fetch();
+        return $statement->fetchAll();
 
     }
 
