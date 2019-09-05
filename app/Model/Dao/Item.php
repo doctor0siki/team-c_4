@@ -79,5 +79,24 @@ class Item extends Dao
         return $statement->fetch();
 
     }
+    public function getItemUser($id)
+    {
+
+        //全件取得するクエリを作成
+        $sql = "select * from item where user_id =:user_id";
+
+        // SQLをプリペア
+        $statement = $this->db->prepare($sql);
+
+        //idを指定します
+        $statement->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
+        //SQLを実行
+        $statement->execute();
+
+        //結果レコードを一件取得し、返送
+        return $statement->fetch();
+
+    }
 
 }
