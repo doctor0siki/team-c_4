@@ -79,7 +79,7 @@ class Item extends Dao
         return $statement->fetch();
 
     }
-    public function getItemUser($id)
+    public function getItemUser($user_id)
     {
 
         //全件取得するクエリを作成

@@ -14,7 +14,7 @@ $app->get('/item/list/', function (Request $request, Response $response) {
 
     $param["user_id"]="bbb";
     //アイテム一覧を取得し、戻り値をresultに格納します
-    $data["result"] = $item->getItemUser();
+    $data["result"] = $item->getItemUser($param["user_id"]);
 
     // Render index view
     // #$data["result"] = $item->select($param,"","",10,true);
