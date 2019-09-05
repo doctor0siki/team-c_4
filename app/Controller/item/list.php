@@ -12,9 +12,9 @@ $app->get('/item/list/', function (Request $request, Response $response) {
     //アイテムDAOをインスタンス化します。
     $item = new Item($this->db);
 
-    $param["user_id"]="bbb";
+    $param["user_id"]="1";
     //アイテム一覧を取得し、戻り値をresultに格納します
-    $data["result"] = $item->select($param,"","",5,false);
+    $data["result"] = $item->getItem();
 
     // Render index view
     // #$data["result"] = $item->select($param,"","",10,true);
