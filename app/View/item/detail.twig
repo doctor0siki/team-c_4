@@ -10,7 +10,6 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-
   <div class="row">
       <div class="col-sm-12">
           <div class="page-header text-center">
@@ -28,34 +27,44 @@
       </div>
   </div>
 
-  <div class="page-header text-center">
-    <ul class="list-unstyled">
-      <li class="bg-secondary m-1">
-        <div class="row">
-          <div class="col-2 d-block mx-auto">
-            <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
+      <div class="row">
+          <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
+          <div class="table-responsive">
+              <table class="table table-striped">
+                  <tbody>
+                  {# 取得した結果分ループする処理です#}
+                  {# コントローラで指定した $data["result"] は Twigでは result として扱えます #}
+                  {# for文でresultの中の一次元目の配列をループで回す形となります #}
+                  {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
+                  <ul class="list-unstyled">
+                    <li class="bg-secondary m-1">
+                      <div class="row">
+                        <div class="col-2 d-block mx-auto">
+                          <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
+                        </div>
+                        <div class="col-10">
+                          <h5 class="mt-0 mb-1">Username!</h5>
+                          <div class="row">
+                          <div class="col-2">
+                            <h5 class="mt-0 mb-1">Title</h5>
+                          </div>
+                          <div class="col-10 text-right">
+                            <h5 class="mt-0 mb-1">1700/01/40</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-block mx-auto ">
+                        <img src="https://dummyimage.com/400x300/ccc/fff.png&text=img3" class="" alt="...">
+                      </div>
+                    </li>
+                    <div class="col">
+                        {{ result.detail | nl2br }}
+                    </div>
+
+                  </ul>
+                  </tbody>
+              </table>
           </div>
-          <div class="col-10">
-            <h5 class="mt-0 mb-1">Username!</h5>
-            <div class="row">
-            <div class="col-2">
-              <h5 class="mt-0 mb-1">Title</h5>
-            </div>
-            <div class="col-10 text-right">
-              <h5 class="mt-0 mb-1">1700/01/40</h5>
-            </div>
-          </div>
-        </div>
-        <div class="d-block mx-auto ">
-          <img src="https://dummyimage.com/400x300/ccc/fff.png&text=img3" class="" alt="...">
-        </div>
-      </li>
-    </ul>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col">
-            {{ result.detail | nl2br }}
-        </div>
+      </div>
     </div>
 {% endblock %}
