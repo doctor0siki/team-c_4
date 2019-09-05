@@ -51,6 +51,22 @@
                     {# for文でresultの中の一次元目の配列をループで回す形となります #}
                     {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
                     <ul class="list-unstyled">
+                      <!--<li class="my-4">-->
+                      <li class="">
+                        <div class="row">
+                          <div class="col-2">
+                            <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="mr-3" alt="...">
+                          </div>
+                          <div class="col-10">
+                            <h5 class="mt-0 mb-1">Username!</h5>
+                            <h5 class="mt-0 mb-1">Title</h5>
+                          </div>
+                        </div>
+
+                        <div class="text-center">
+                          <img width="300" height="200" src="https://dummyimage.com/400x300/ccc/fff.png&text=img3" class="mr-3" alt="...">
+                        </div>
+                      </li>
 
                         <li class="media my-4">
                             <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img3" class="mr-3" alt="...">
@@ -67,6 +83,7 @@
                             </div>
                         </li>
                     </ul>
+                    <!-- INFO:resultがかぶってしまうともしかしたら動かないかも -->
                     {% for row in result %}
                       <li class="media">
                         <div href="/item/detail/{{ row.id }}">
