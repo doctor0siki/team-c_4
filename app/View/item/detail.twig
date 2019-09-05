@@ -6,47 +6,72 @@
 
 {# このページに適用させたいスタイルシートを指定します #}
 {% block header_scripts_add %}
+    {# 背景動画を表示させるスタイルを読み込みます。#}
+    <link href="/assets/css/video.css" rel="stylesheet">
 {% endblock %}
 
-{#ここから表示したい情報を記載します。#}
 {% block page_content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header text-center">
+              <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">{{ result.name }}の詳細情報</h1>
+            </div>
+            <div class="box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
+                        <div id="filter">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div class="page-header text-center">
-        <h4>{{ result.name }}</h4>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col">
-            <img src="{{ result.image_url }}" class="img-fluid">
+    {#ここから表示したい情報を記載します。#}
+        <div class="page-header text-center">
+            <h1>ユーザー名：</h1>
         </div>
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    {{ result.spec }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h1>{{ result.price |number_format }}円</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col align-bottom">
-                    <br>
-                    <button class="btn btn-danger"><i class="fa fa-shopping-cart"></i>　カートへ追加する　　</button>
-                </div>
+        <div class="row">
+            <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                    {# 取得した結果分ループする処理です#}
+                    {# コントローラで指定した $data["result"] は Twigでは result として扱えます #}
+                    {# for文でresultの中の一次元目の配列をループで回す形となります #}
+                    {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
+                    <ul class="list-unstyled">
+                      <li class="bg-secondary m-1">
+                        <div class="row">
+                          <div class="col-2 d-block mx-auto">
+                            <a class="nav-link" href="/item/list/">
+                              <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
+                            </a>
+                          </div>
+                          <div class="col-10">
+                            <h5 class="mt-0 mb-1">Username!</h5>
+                            <div class="row">
+                            <div class="col-2">
+                              <h5 class="mt-0 mb-1">Title</h5>
+                            </div>
+                            <div class="col-10 text-right">
+                              <h5 class="mt-0 mb-1">1700/01/40</h5>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-block mx-auto ">
+                          <a href="/item/detail/1">
+                            <img src="https://dummyimage.com/400x300/ccc/fff.png&text=img3" class="" alt="...">
+                          </a>
+                        </div>
+                        <div class="col">
+                          {{ result.detail | nl2br }}
+                        </div>
+                      </li>
+                    </ul>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col">
-            <b>{{ result.spec }}</b>
-            <hr>
-            {{ result.detail | nl2br }}
-        </div>
-    </div>
 {% endblock %}
-
-{#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}{% endblock %}
