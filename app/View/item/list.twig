@@ -48,7 +48,9 @@
                       <li class="bg-secondary m-1">
                         <div class="row">
                           <div class="col-2 d-block mx-auto">
-                            <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
+                            <a class="nav-link" href="/item/list/">
+                              <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
+                            </a>
                           </div>
                           <div class="col-10">
                             <h5 class="mt-0 mb-1">Username!</h5>
@@ -62,14 +64,18 @@
                           </div>
                         </div>
                         <div class="d-block mx-auto ">
-                          <img src="https://dummyimage.com/400x300/ccc/fff.png&text=img3" class="" alt="...">
+                          <a href="/item/detail/1">
+                            <img src="https://dummyimage.com/400x300/ccc/fff.png&text=img3" class="" alt="...">
+                          </a>
                         </div>
                       </li>
 
                       <li class="bg-secondary m-1">
                         <div class="row">
                           <div class="col-2 d-block mx-auto">
-                            <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
+                            <a class="nav-link" href="/item/list/">
+                              <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
+                            </a>
                           </div>
                           <div class="col-10">
                             <h5 class="mt-0 mb-1">Username!</h5>
@@ -83,7 +89,9 @@
                           </div>
                         </div>
                         <div class="d-block mx-auto">
-                          <img src="https://dummyimage.com/400x300/ccc/fff.png&text=img3" class="" alt="...">
+                          <a href="/item/detail/1">
+                            <img src="https://dummyimage.com/400x300/ccc/fff.png&text=img3" class="" alt="...">
+                          </a>
                         </div>
                       </li>
                     </ul>
@@ -97,16 +105,16 @@
                         <div class="align-middle" scope="col">
                       </li>
                         <tr>
-                            <td class="align-middle" scope="col">
-                                <a href="/item/detail/{{ row.id }}">
-                                    <img src="{{ row.image_url }}" width="200" class="img-fluid">
-                                </a>
-                            </td>
-                            <td class="align-middle" scope="col">
-                                <a href="/item/detail/{{ row.id }}">{{ row.name }}</a>
-                            </td>
-                            <td class="align-middle" scope="col">{{ row.spec }}</td>
-                            <td class="align-middle" scope="col">{{ row.price | number_format }}円</td>
+                          <td class="align-middle" scope="col">
+                            <a href="/item/detail/{{ row.id }}">
+                              <img src="{{ row.image_url }}" width="200" class="img-fluid">
+                            </a>
+                          </td>
+                          <td class="align-middle" scope="col">
+                            <a href="/item/detail/{{ row.id }}">{{ row.name }}</a>
+                          </td>
+                          <td class="align-middle" scope="col">{{ row.spec }}</td>
+                          <td class="align-middle" scope="col">{{ row.price | number_format }}円</td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -114,6 +122,3 @@
             </div>
         </div>
 {% endblock %}
-
-{#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}{% endblock %}
