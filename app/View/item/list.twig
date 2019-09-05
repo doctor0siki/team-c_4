@@ -16,15 +16,6 @@
                 <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">飯テロフィール</h1>
                 <h2 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">ユーザー名：</h2>
             </div>
-            <div class="box">
-                <div class="row">
-                    <div class="col-md-12">
-                        <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
-                        <div id="filter">
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -35,6 +26,7 @@
         <div class="row">
             <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
             <div class="table-responsive">
+              <ul class="list-unstyled">
               {% for row in result %}
                 <li class="media">
                   <div href="/item/detail/{{ row.id }}">
@@ -43,19 +35,8 @@
                   <div href="/item/detail/{{ row.id }}">{{ row.name }}</div>
                   <div class="align-middle" scope="col">
                 </li>
-                  <tr>
-                      <td class="align-middle" scope="col">
-                          <a href="/item/detail/{{ row.id }}">
-                              <img src="{{ row.image_url }}" width="200" class="img-fluid">
-                          </a>
-                      </td>
-                      <td class="align-middle" scope="col">
-                          <a href="/item/detail/{{ row.id }}">{{ row.name }}</a>
-                      </td>
-                      <td class="align-middle" scope="col">{{ row.spec }}</td>
-                      <td class="align-middle" scope="col">{{ row.price | number_format }}円</td>
-                  </tr>
               {% endfor %}
+              </ul>
 
             </div>
         </div>
@@ -63,23 +44,6 @@
             {# コントローラで指定した $data["result"] は Twigでは result として扱えます #}
             {# for文でresultの中の一次元目の配列をループで回す形となります #}
             {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
-            <ul class="list-unstyled">
-
-            {% for row in result %}
-              <li class="media">
-                <div href="/item/detail/{{ row.id }}">{{ row.name }}</div>
-                <div href="/item/detail/{{ row.id }}">
-                    <img src="https://dummyimage.com/320x240/ccc/fff.png&text=img3" class="mr-3" alt="...">
-                    <a href="/item/detail/{{ row.id }}">
-                        <img src="{{ row.image_url }}" width="200" class="img-fluid">
-                    </a>
-                    <img src="{{ row.image_url }}" width="200" class="img-fluid">
-                </div>
-                <div class="align-middle" scope="col">
-              </li>
-            {% endfor %}
-
-          </ul>
 
 {% endblock %}
 
