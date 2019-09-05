@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="page-header text-center">
-                <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">飯テロ</h1>
+                <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">飯テロリスト</h1>
             </div>
             <div class="box">
                 <div class="row">
@@ -32,7 +32,6 @@
 
     {#ここから表示したい情報を記載します。#}
         <div class="page-header text-center">
-            <h1>飯テロ一覧</h1>
         </div>
         <div class="row">
             <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
@@ -53,14 +52,14 @@
                             </a>
                           </div>
                           <div class="col-10">
-                            <h5 class="mt-0 mb-1">{{ row.user_id }}</h5>
+                            <h5 class="mt-0 mb-1">{{ row.title }}</h5>
                             <div class="row">
-                            <div class="col-2">
-                              <h5 class="mt-0 mb-1">{{ row.title }}</h5>
-                            </div>
-                            <div class="col-10 text-right">
-                              <h5 class="mt-0 mb-1">{{ row.date }}</h5>
-                            </div>
+                              <div class="col-4">
+                                <h5 class="mt-0 mb-1">{{ row.user_id }}</h5>
+                              </div>
+                              <div class="col-8 text-right">
+                                <h5 class="mt-0 mb-1">{{ row.date }}</h5>
+                              </div>
                           </div>
                         </div>
                         <div class="d-block mx-auto ">

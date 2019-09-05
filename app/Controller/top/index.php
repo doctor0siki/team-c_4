@@ -10,6 +10,7 @@ $app->get('/', function (Request $request, Response $response) {
     $param["user_id"]="";
     // Render index view
     $data["result"] = $item->getItemList();
+    dd($data);
 
     #$data["result"] = $item->select($param,"","",10,true);
     return $this->view->render($response, 'top/index.twig', $data);
