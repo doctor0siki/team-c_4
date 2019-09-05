@@ -10,9 +10,15 @@ $app->get('/', function (Request $request, Response $response) {
 
     $param["user_id"]="";
     // Render index view
-    $result = $item->select($param,"","",10,true);
-    dd($result);
-    return $this->view->render($response, 'top/index.twig', $result);
+
+    $data["result"] = $item->getItemList();
+    
+
+    #$data["result"] = $item->select($param,"","",10,true);
+
+    return $this->view->render($response, 'top/index.twig', $data);
+    #return $this->view->render($response, 'item/list.twig', $data);
+
 });
 
 // TOPページのコントローラ
