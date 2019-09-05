@@ -12,7 +12,7 @@ $app->get('/item/list/{user_id}', function (Request $request, Response $response
     //アイテムDAOをインスタンス化します。
     $item = new Item($this->db);
 
-    $param["user_id"]=args["user_id"];
+    $param["user_id"]=$args["user_id"];
     //アイテム一覧を取得し、戻り値をresultに格納します
     $data["result"] = $item->getItemUser($param["user_id"]);
 
