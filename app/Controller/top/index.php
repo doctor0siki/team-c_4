@@ -2,14 +2,23 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Model\Dao\Item;
 
 // TOPページのコントローラ
 $app->get('/', function (Request $request, Response $response) {
+    $item = new Item($this->db);
 
-    $data = [];
-
+    $param["user_id"]="";
     // Render index view
+
+    $data["result"] = $item->getItemList();
+    
+
+    #$data["result"] = $item->select($param,"","",10,true);
+
     return $this->view->render($response, 'top/index.twig', $data);
+    #return $this->view->render($response, 'item/list.twig', $data);
+
 });
 
 // TOPページのコントローラ
