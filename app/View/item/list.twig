@@ -6,6 +6,8 @@
 
 {# このページに適用させたいスタイルシートを指定します #}
 {% block header_scripts_add %}
+  {# 背景動画を表示させるスタイルを読み込みます。#}
+  <link href="/assets/css/video.css" rel="stylesheet">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
@@ -14,9 +16,18 @@
         <div class="col-sm-12">
             <div class="page-header text-center">
                 <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">飯テロフィール</h1>
-                <h2 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">ユーザー名：</h2>
             </div>
+            <div class="box">
+                <div class="row">
+                      <div class="col-md-12">
+                          <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
+                          <div id="filter">
+                          </div>
+                      </div>
+                  </div>
+              </div>
         </div>
+        <h2 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">ユーザー名：</h2>
     </div>
 
     {#ここから表示したい情報を記載します。#}
@@ -28,12 +39,21 @@
             <div class="table-responsive">
               <ul class="list-unstyled">
               {% for row in result %}
-                <li class="media">
-                  <div href="/item/detail/{{ row.id }}">
-                      <img src="{{ row.image_url }}" width="200" class="img-fluid">
+                <!--<li class="my-4">-->
+                <li class="">
+                  <div class="row">
+                    <div class="col-2">
+                      <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="mr-3" alt="...">
+                    </div>
+                    <div class="col-10">
+                      <h5 class="mt-0 mb-1">Username!</h5>
+                      <div href="/item/detail/{{ row.id }}">{{ row.name }}</div>
+                      <h5 class="mt-0 mb-1">Title</h5>
+                    </div>
                   </div>
-                  <div href="/item/detail/{{ row.id }}">{{ row.name }}</div>
-                  <div class="align-middle" scope="col">
+                  <div class="text-center">
+                    <img width="300" height="200" src="https://dummyimage.com/400x300/ccc/fff.png&text=img3" class="mr-3" alt="...">
+                  </div>
                 </li>
               {% endfor %}
               </ul>
