@@ -8,12 +8,11 @@ use Model\Dao\Item;
 $app->get('/', function (Request $request, Response $response) {
     $item = new Item($this->db);
 
-    $param["user_id"]="bbb";
-
+    $param["user_id"]="";
     // Render index view
-    $reslut = $item->select($param,"","",1,false);
+    $result = $item->select($param,"","",10,true);
     dd($result);
-    return $this->view->render($response, 'top/index.twig', $data);
+    return $this->view->render($response, 'top/index.twig', $result);
 });
 
 // TOPページのコントローラ
