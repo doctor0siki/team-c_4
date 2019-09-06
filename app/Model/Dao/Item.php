@@ -34,7 +34,7 @@ class Item extends Dao
     {
 
         //全件取得するクエリを作成
-        $sql = "select * from item order by desc";
+        $sql = "select * from item order by date desc";
 
         // SQLをプリペア
         $statement = $this->db->prepare($sql);
