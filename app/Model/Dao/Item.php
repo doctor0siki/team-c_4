@@ -34,7 +34,7 @@ class Item extends Dao
     {
 
         //全件取得するクエリを作成
-        $sql = "select * from item";
+        $sql = "select * from item order by date desc";
 
         // SQLをプリペア
         $statement = $this->db->prepare($sql);
@@ -60,23 +60,42 @@ class Item extends Dao
      * @since 2019/08/14
      */
 
-    public function getItem($id)
+    public function getItem($title)
     {
 
         //全件取得するクエリを作成
-        $sql = "select * from item where id =:id";
+        $sql = "select * from item where title =:title";
 
         // SQLをプリペア
         $statement = $this->db->prepare($sql);
 
         //idを指定します
-        $statement->bindParam(":id", $id, PDO::PARAM_INT);
+        $statement->bindParam(":title", $title, PDO::PARAM_INT);
 
         //SQLを実行
         $statement->execute();
 
         //結果レコードを一件取得し、返送
         return $statement->fetch();
+
+    }
+    public function getItemUser($user_id)
+    {
+
+        //全件取得するクエリを作成
+        $sql = "select * from item where user_id =:user_id order by date desc";
+
+        // SQLをプリペア
+        $statement = $this->db->prepare($sql);
+
+        //idを指定します
+        $statement->bindParam(":user_id", $user_id, PDO::PARAM_STR);
+
+        //SQLを実行
+        $statement->execute();
+
+        //結果レコードを一件取得し、返送
+        return $statement->fetchAll();
 
     }
 
