@@ -41,7 +41,7 @@
                     {# コントローラで指定した $data["result"] は Twigでは result として扱えます #}
                     {# for文でresultの中の一次元目の配列をループで回す形となります #}
                     {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled card">
                       <li class="m-1 mb-4" style="background-color:rgba(255,255,255,0.5);">
                         <div class="row">
                           <div class="col-2 d-block mx-auto">
@@ -68,7 +68,7 @@
                       </li>
                       <div class="card">
                           <div class="card-body">
-                            {{ result.detail }}
+                            <p class="card-text">{{ result.detail }}</p>
                           </div>
                       </div>
                     </ul>
