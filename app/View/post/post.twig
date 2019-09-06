@@ -30,11 +30,14 @@
     </div>
 
     <form action="/upload" enctype="multipart/form-data" method="post">
-      <span class="btn btn-primary">
-      <input name="file_upload" type="file">
-      <input type="text" name=title placeholder="title" />
-      <input type="submit" value="UP" />
-    </spam>
+      <div class="form-group">
+        <input name="file_upload" type="file">
+        <div class="">
+          <input type="text" name=title  placeholder="タイトルを入力" />
+        </div>
+        <textarea name="detail" cols="80" rows="10" placeholder="詳細を入力してください(※任意)"></textarea>
+        <input type="submit" class="btn btn-primary"value="UP"/>
+      </div>
     </form>
 {% endblock %}
 
