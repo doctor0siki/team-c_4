@@ -15,15 +15,10 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="page-header text-center">
-              <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">{{ result.title }}の詳細情報</h1>
+              <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 255, .5);">{{ result.title }}の詳細情報</h1>
             </div>
             <div class="box">
                 <div class="row">
-                    <div class="col-md-12">
-                        <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
-                        <div id="filter">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -36,7 +31,7 @@
         </div>
         <div class="row">
             <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
-            <div class="table-responsive">
+            <div class="table">
                 <table class="table table-striped">
                     <tbody>
                     {# 取得した結果分ループする処理です#}
@@ -46,11 +41,6 @@
                     <ul class="list-unstyled card" style="background-color:rgba(255,255,255,0.5);">
                       <li class="m-1 mb-4">
                         <div class="row">
-                          <div class="col-2 d-block mx-auto">
-                            <a class="nav-link" href="/item/list/{{ result.user_id }}">
-                              <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
-                            </a>
-                          </div>
 
                           <div class="bomb black">
                             <span class="ledge"></span>
@@ -72,14 +62,18 @@
                             </div>
                           </div>
                           <div class="col-10">
-                            <h5 class="mt-0 mb-1">{{ result.user_id }}</h5>
-                            <div class="row">
-                            <div class="col-2">
+                            <a href="/item/detail/{{ result.title }}" style="font-size: 80px;color: black;">
                               <h5 class="mt-0 mb-1">{{ result.title }}</h5>
-                            </div>
-                            <div class="col-10 text-right">
-                              <h5 class="mt-0 mb-1">{{ result.date }}</h5>
-                            </div>
+                            </a>
+                            <div class="row">
+                              <div class="col-4">
+                                <a href="/item/list/{{ result.user_id }}" style="font-size: 80px;color: black;">
+                                  <h5 class="mt-0 mb-1">{{ result.user_id }}</h5>
+                                </a>
+                              </div>
+                              <div class="col-8 text-right">
+                                <h5 class="mt-0 mb-1">{{ result.date }}</h5>
+                              </div>
                           </div>
                         </div>
                         <div class="d-block mx-auto ">
