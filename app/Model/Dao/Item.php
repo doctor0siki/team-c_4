@@ -70,7 +70,7 @@ class Item extends Dao
         $statement = $this->db->prepare($sql);
 
         //idを指定します
-        $statement->bindParam(":title", $title, PDO::PARAM_INT);
+        $statement->bindParam(":title", $title, PDO::PARAM_STR);
 
         //SQLを実行
         $statement->execute();
