@@ -29,5 +29,5 @@ $extension = explode('.', $filename);
 $item = new Item($this->db);
 $id = $item->insert($data);*/
 
-    return $response->withRedirect('/post');
+    return $response->withRedirect('/');
   });
