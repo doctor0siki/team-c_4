@@ -50,25 +50,25 @@
                             </a>
                           </div>
                           <div class="col-10">
-                            <h5 class="mt-0 mb-1">{{ result.user_id }}</h5>
+                            <h5 class="mt-0 mb-1">{{ result.title }}</h5>
                             <div class="row">
-                            <div class="col-2">
-                              <h5 class="mt-0 mb-1">{{ result.title }}</h5>
-                            </div>
-                            <div class="col-10 text-right">
-                              <h5 class="mt-0 mb-1">{{ result.date }}</h5>
-                            </div>
+                              <div class="col-4">
+                                <h5 class="mt-0 mb-1">{{ result.user_id }}</h5>
+                              </div>
+                              <div class="col-8 text-right">
+                                <h5 class="mt-0 mb-1">{{ result.date }}</h5>
+                              </div>
                           </div>
                         </div>
                         <div class="d-block mx-auto ">
-                          <a href="/item/detail/{{result.title}}">
+                          <a href="/item/detail/{{ result.title }}">
                             <img width="400"  src="/assets/img/{{ result.image_url }}" class="" alt="...">
                           </a>
                         </div>
+                        <div class="card-body" style="background-color:rgba(255,255,255,1);">
+                          <p class="card-text">{{ result.detail }}</p>
+                        </div>
                       </li>
-                      <div class="card-body" style="background-color:rgba(255,255,255,1);">
-                        <p class="card-text">{{ result.detail }}</p>
-                      </div>
                     </ul>
                     </tbody>
                 </table>
