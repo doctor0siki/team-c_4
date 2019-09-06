@@ -41,9 +41,8 @@
                     {# コントローラで指定した $data["result"] は Twigでは result として扱えます #}
                     {# for文でresultの中の一次元目の配列をループで回す形となります #}
                     {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
-                    <ul class="list-unstyled card">
-                      <div class="card-body">
-                      <li class="m-1 mb-4" style="background-color:rgba(255,255,255,0.5);">
+                    <ul class="list-unstyled card" style="background-color:rgba(255,255,255,0.5);">
+                      <li class="m-1 mb-4">
                         <div class="row">
                           <div class="col-2 d-block mx-auto">
                             <a class="nav-link" href="/item/list/{{ result.user_id }}">
@@ -66,6 +65,7 @@
                             <img width="400"  src="/assets/img/{{ result.image_url }}" class="" alt="...">
                           </a>
                         </div>
+                        <div class="card-body">
                           <p class="card-text">{{ result.detail }}</p>
                         </div>
                       </li>
