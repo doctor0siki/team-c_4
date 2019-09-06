@@ -33,5 +33,5 @@ $data = $request->getParsedBody();
  $data["user_id"]=$user;
  $data["date"]=date("YmdHis");
  $id = $item->insert($data);
-    return $response->withRedirect('/post');
+    return $response->withRedirect('/');
   });

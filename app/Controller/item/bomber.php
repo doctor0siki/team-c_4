@@ -14,7 +14,7 @@ use Slim\Http\Response;
  * {item_id}の中身は$argsに入ります。
  * 取得する時は、$args["item_id"]で取得できます。
  */
-$app->get('/item/detail/{title}', function (Request $request, Response $response, $args) {
+$app->get('/item/bomber/{title}', function (Request $request, Response $response, $args) {
 
 
     $data = [];
@@ -29,6 +29,6 @@ $app->get('/item/detail/{title}', function (Request $request, Response $response
     $data["result"] = $item->getItem($title);
 
     // Render index view
-    return $this->view->render($response, 'item/detail.twig', $data);
+    return $this->view->render($response, 'item/bomber.twig', $data);
 
 });

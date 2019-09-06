@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}TOP{% endblock %}
+{% block title %}飯テロ予告{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
@@ -15,13 +15,11 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="page-header text-center">
-                <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">飯テロ予告</h1>
+                <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 255, .5);">飯テロ予告</h1>
             </div>
             <div class="box">
                 <div class="row">
                     <div class="col-md-12">
-                        <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
-                        <div id="filter">
                         </div>
                     </div>
                 </div>
@@ -30,11 +28,20 @@
     </div>
 
     <form action="/upload" enctype="multipart/form-data" method="post">
-      <span class="btn btn-primary">
-      <input name="file_upload" type="file">
-      <input type="text" name=title placeholder="title" />
-      <input type="submit" value="UP" />
-    </spam>
+      <div class="form-group m-5">
+        <div class="m-2">
+          <input type="text" name=title  placeholder="タイトルを入力" />
+        </div>
+        <div class="m-2">
+        <input name="file_upload" type="file">
+        </div>
+        <div class="m-2">
+          <textarea name="detail" cols="80" rows="10" placeholder="詳細を入力してください(※任意)"></textarea>
+        </div>
+        <div class="m-2">
+          <input type="submit" class="btn btn-primary"value="UP"/>
+        </div>
+      </div>
     </form>
 {% endblock %}
 

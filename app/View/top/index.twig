@@ -2,12 +2,14 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}TOP{% endblock %}
+{% block title %}Food Porn{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
   {# 背景動画を表示させるスタイルを読み込みます。#}
   <link href="/assets/css/video.css" rel="stylesheet">
+  <link href="/assets/css/bomber.css" rel="stylesheet">
+  <link href="/assets/css/background.css" rel="stylesheet">
 {% endblock %}
 
 
@@ -16,12 +18,14 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="page-header text-center">
-        <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">飯テロリスト</h1>
+        <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 255, .5);">飯テロリスト</h1>
       </div>
       <div class="box">
         <div class="row">
           <div class="col-md-12">
-            <video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
+            <!--<video id="bg-video" src="/assets/img/bg.mp4" playsinline autoplay loop></video>
+              <img id="bg-video" src="/assets/img/table_cross.jpg"></img>-->
+              <div id="bg-video" style="background-color:"black";></div>
             <div id="filter">
             </div>
           </div>
@@ -33,9 +37,12 @@
 {#ここから表示したい情報を記載します。#}
   <div class="page-header text-center">
   </div>
+  <a href="/post" id="fixed-button"><div class="m-0 btn btn-danger" style="font-size:22px;z-index:5;">爆破予告</div></a>
+  <!--<div id="fixed-button"><a href="/post"></a></div>-->
   <div class="row">
     <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
-    <div class="table-responsive">
+    <!--<div class="table-responsive">-->
+    <div class="table">
       <table class="table table-striped">
         <tbody>
         {# 取得した結果分ループする処理です#}
@@ -46,16 +53,15 @@
         {% for row in result %}
           <li class="m-1 mb-4" style="background-color:rgba(255,255,255,0.5);">
             <div class="row">
-              <div class="col-2 d-block mx-auto">
-                <a class="nav-link" href="/item/list/{{ row.user_id}}">
-                  <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
-                </a>
-              </div>
               <div class="col-10">
-                <h5 class="mt-0 mb-1">{{ row.title }}</h5>
+                <a href="/item/detail/{{ row.title }}" style="font-size: 80px;color: black;">
+                  <h5 class="mt-0 mb-1">{{ row.title }}</h5>
+                </a>
                 <div class="row">
                   <div class="col-4">
-                    <h5 class="mt-0 mb-1">{{ row.user_id }}</h5>
+                    <a href="/item/list/{{ row.user_id}}" style="font-size: 80px;color: black;">
+                      <h5 class="mt-0 mb-1">{{ row.user_id }}</h5>
+                    </a>
                   </div>
                   <div class="col-8 text-right">
                     <h5 class="mt-0 mb-1">{{ row.date }}</h5>
@@ -63,7 +69,7 @@
               </div>
             </div>
             <div class="d-block mx-auto ">
-              <a href="/item/detail/1">
+              <a href="/item/detail/{{ row.title }}">
                 <img width="400"  src="/assets/img/{{ row.image_url }}" class="" alt="...">
               </a>
             </div>
