@@ -3,7 +3,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}飯テロフィール{% endblock %}
+{% block title %}飯テロフィール:{{result.0.user_id}}{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
