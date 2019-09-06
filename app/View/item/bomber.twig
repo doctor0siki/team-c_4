@@ -8,6 +8,7 @@
 {% block header_scripts_add %}
     {# 背景動画を表示させるスタイルを読み込みます。#}
     <link href="/assets/css/video.css" rel="stylesheet">
+    <link href="/assets/css/bomber.css" rel="stylesheet">
 {% endblock %}
 
 {% block page_content %}
@@ -28,6 +29,7 @@
         </div>
     </div>
 
+
     {#ここから表示したい情報を記載します。#}
         <div class="page-header text-center">
             <h1>ユーザー名：{{result.user_id}}</h1>
@@ -44,23 +46,44 @@
                     <ul class="list-unstyled card" style="background-color:rgba(255,255,255,0.5);">
                       <li class="m-1 mb-4">
                         <div class="row">
-                          <div class="col-10">
-                            <a href="/item/detail/{{ result.title }}" style="font-size: 80px;color: black;">
-                              <h5 class="mt-0 mb-1">{{ result.title }}</h5>
+                          <div class="col-2 d-block mx-auto">
+                            <a class="nav-link" href="/item/list/{{ result.user_id }}">
+                              <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
                             </a>
+                          </div>
+
+                          <div class="bomb black">
+                            <span class="ledge"></span>
+                            <div class="fuse"></div>
+                            <div class="dust">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <p class="msg orange">飯テロ!!!!!</p>
+                            </div>
+                          </div>
+                          <div class="col-10">
+                            <h5 class="mt-0 mb-1">{{ result.user_id }}</h5>
                             <div class="row">
-                              <div class="col-4">
-                                <a href="/item/list/{{ result.user_id }}" style="font-size: 80px;color: black;">
-                                  <h5 class="mt-0 mb-1">{{ result.user_id }}</h5>
-                                </a>
-                              </div>
-                              <div class="col-8 text-right">
-                                <h5 class="mt-0 mb-1">{{ result.date }}</h5>
-                              </div>
+                            <div class="col-2">
+                              <h5 class="mt-0 mb-1">{{ result.title }}</h5>
+                            </div>
+                            <div class="col-10 text-right">
+                              <h5 class="mt-0 mb-1">{{ result.date }}</h5>
+                            </div>
                           </div>
                         </div>
                         <div class="d-block mx-auto ">
-                          <a href="/item/detail/{{ result.title }}">
+                          <a href="/item/detail/{{result.title}}">
                             <img width="400"  src="/assets/img/{{ result.image_url }}" class="" alt="...">
                           </a>
                         </div>
@@ -69,9 +92,6 @@
                         <p class="card-text">{{ result.detail }}</p>
                       </div>
                     </ul>
-
-                    <a class="btn btn-danger " href="/item/bomber/{{result.title}}">爆破</a>
-
                     </tbody>
                 </table>
             </div>
