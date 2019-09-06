@@ -14,13 +14,13 @@ use Slim\Http\Response;
  * {item_id}の中身は$argsに入ります。
  * 取得する時は、$args["item_id"]で取得できます。
  */
-$app->get('/item/detail/{item_id}', function (Request $request, Response $response, $args) {
+$app->get('/item/detail/{title}', function (Request $request, Response $response, $args) {
 
 
     $data = [];
 
     //URLパラメータのitem_idを取得します。
-    $item_id = $args["item_id"];
+    $item_id = $args["title"];
 
     //アイテムDAOをインスタンス化します。
     $item = new Item($this->db);

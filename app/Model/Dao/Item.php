@@ -60,17 +60,17 @@ class Item extends Dao
      * @since 2019/08/14
      */
 
-    public function getItem($id)
+    public function getItem($title)
     {
 
         //全件取得するクエリを作成
-        $sql = "select * from item where id =:id";
+        $sql = "select * from item where title =:title";
 
         // SQLをプリペア
         $statement = $this->db->prepare($sql);
 
         //idを指定します
-        $statement->bindParam(":id", $id, PDO::PARAM_INT);
+        $statement->bindParam(":title", $title, PDO::PARAM_INT);
 
         //SQLを実行
         $statement->execute();

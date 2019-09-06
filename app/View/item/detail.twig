@@ -61,13 +61,15 @@
                           </div>
                         </div>
                         <div class="d-block mx-auto ">
-                          <a href="/item/detail/1">
+                          <a href="/item/detail/{{result.0.title}}">
                             <img width="400"  src="/assets/img/{{ result.0.image_url }}" class="" alt="...">
                           </a>
                         </div>
-                        <!--<div class="d-block mx-auto">
-                          <h5 class="mt-0 mb-1">{{ result.0.detail }}</h5>
-                        </div>-->
+                        <div class="d-block mx-auto">
+                          <h5 class="mt-0 mb-1">{{ result.0.detail }}
+                            大阪　東京　神奈川
+                          </h5>
+                        </div>
                       </li>
                     </ul>
                     </tbody>
