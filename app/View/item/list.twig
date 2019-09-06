@@ -3,7 +3,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}飯テロフィール{% endblock %}
+{% block title %}飯テロフィール:{{result.0.user_id}}{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
@@ -48,29 +48,27 @@
                     {% for row in result %}
                       <li class="m-1 mb-4" style="background-color:rgba(255,255,255,0.5);">
                         <div class="row">
-                          <div class="col-2 d-block mx-auto">
-                            <a class="nav-link" href="/item/list/{{ row.user_id }}">
-                              <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
+                          <div class="col-10">
+                            <a href="/item/detail/{{ row.title }}" style="font-size: 80px;color: black;">
+                              <h5 class="mt-0 mb-1">{{ row.title }}</h5>
+                            </a>
+                            <div class="row">
+                              <div class="col-4">
+                                <a href="/item/list/{{ row.user_id}}" style="font-size: 80px;color: black;">
+                                  <h5 class="mt-0 mb-1">{{ row.user_id }}</h5>
+                                </a>
+                              </div>
+                              <div class="col-8 text-right">
+                                <h5 class="mt-0 mb-1">{{ row.date }}</h5>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-block mx-auto ">
+                            <a href="/item/detail/{{ row.title }}">
+                              <img width="400"  src="/assets/img/{{ row.image_url }}" class="" alt="...">
                             </a>
                           </div>
-                          <div class="col-10">
-                            <h5 class="mt-0 mb-1">{{ row.user_id }}</h5>
-                            <div class="row">
-                            <div class="col-2">
-                              <h5 class="mt-0 mb-1">{{ row.title }}</h5>
-                            </div>
-                            <div class="col-10 text-right">
-                              <h5 class="mt-0 mb-1">{{ row.date }}</h5>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="d-block mx-auto ">
-                          <a href="/item/detail/{{row.title}}">
-                            <img width="400"  src="/assets/img/{{ row.image_url }}" class="" alt="...">
-                          </a>
-                        </div>
-                      </li>
-
+                        </li>
                     {% endfor %}
                     </ul>
                     </tbody>
