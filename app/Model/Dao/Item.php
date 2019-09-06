@@ -83,7 +83,7 @@ class Item extends Dao
     {
 
         //全件取得するクエリを作成
-        $sql = "select * from item where user_id =:user_id";
+        $sql = "select * from item where user_id =:user_id order by date desc";
 
         // SQLをプリペア
         $statement = $this->db->prepare($sql);

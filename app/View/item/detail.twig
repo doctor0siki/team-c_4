@@ -30,7 +30,7 @@
 
     {#ここから表示したい情報を記載します。#}
         <div class="page-header text-center">
-            <h1>ユーザー名：</h1>
+            <h1>ユーザー名：{{result.0.user_id}}</h1>
         </div>
         <div class="row">
             <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
@@ -42,32 +42,32 @@
                     {# for文でresultの中の一次元目の配列をループで回す形となります #}
                     {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
                     <ul class="list-unstyled">
-                      <li class="bg-secondary m-1">
+                      <li class="m-1 mb-4" style="background-color:rgba(255,255,255,0.5);">
                         <div class="row">
                           <div class="col-2 d-block mx-auto">
-                            <a class="nav-link" href="/item/list/{{ row.user_id }}">
+                            <a class="nav-link" href="/item/list/{{ result.0.user_id }}">
                               <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
                             </a>
                           </div>
                           <div class="col-10">
-                            <h5 class="mt-0 mb-1">Username!</h5>
+                            <h5 class="mt-0 mb-1">{{ result.0.user_id }}</h5>
                             <div class="row">
                             <div class="col-2">
-                              <h5 class="mt-0 mb-1">Title</h5>
+                              <h5 class="mt-0 mb-1">{{ result.0.title }}</h5>
                             </div>
                             <div class="col-10 text-right">
-                              <h5 class="mt-0 mb-1">1700/01/40</h5>
+                              <h5 class="mt-0 mb-1">{{ result.0.date }}</h5>
                             </div>
                           </div>
                         </div>
                         <div class="d-block mx-auto ">
                           <a href="/item/detail/1">
-                            <img src="https://dummyimage.com/400x300/ccc/fff.png&text=img3" class="" alt="...">
+                            <img width="400"  src="/assets/img/{{ result.0.image_url }}" class="" alt="...">
                           </a>
                         </div>
-                        <div class="col">
-                          {{ result.detail | nl2br }}
-                        </div>
+                        <!--<div class="d-block mx-auto">
+                          <h5 class="mt-0 mb-1">{{ result.0.detail }}</h5>
+                        </div>-->
                       </li>
                     </ul>
                     </tbody>
