@@ -20,13 +20,13 @@ $app->get('/item/detail/{title}', function (Request $request, Response $response
     $data = [];
 
     //URLパラメータのitem_idを取得します。
-    $item_id = $args["title"];
+    $title = $args["title"];
 
     //アイテムDAOをインスタンス化します。
     $item = new Item($this->db);
 
     //URLパラメータのitem_id部分を引数として渡し、戻り値をresultに格納します
-    $data["result"] = $item->getItem($item_id);
+    $data["result"] = $item->getItem($title);
 
     // Render index view
     return $this->view->render($response, 'item/detail.twig', $data);
