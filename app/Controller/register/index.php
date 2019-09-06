@@ -29,7 +29,7 @@ $app->post('/register/', function (Request $request, Response $response) {
     if ($user->select(array("user_id" => $data["user_id"]), "", "", 1, false)) {
 
         //入力項目がマッチしない場合エラーを出す
-        $data["error"] = "このメールアドレスは既に会員登録済みです";
+        $data["error"] = "このユーザ―IDは既に会員登録済みです";
 
         // 入力フォームを再度表示します
         return $this->view->render($response, 'register/register.twig', $data);

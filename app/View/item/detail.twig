@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}{{ result.name }}の詳細情報{% endblock %}
+{% block title %}{{ result.title }}の詳細情報{% endblock %}
 
 {# このページに適用させたいスタイルシートを指定します #}
 {% block header_scripts_add %}
@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="page-header text-center">
-              <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">{{ result.name }}の詳細情報</h1>
+              <h1 style="font-size: 80px;color: black;background: rgba(255, 255, 128, .5);">{{ result.title }}の詳細情報</h1>
             </div>
             <div class="box">
                 <div class="row">
@@ -30,7 +30,7 @@
 
     {#ここから表示したい情報を記載します。#}
         <div class="page-header text-center">
-            <h1>ユーザー名：{{result.0.user_id}}</h1>
+            <h1>ユーザー名：{{result.user_id}}</h1>
         </div>
         <div class="row">
             <!-- Boostrapのテーブルタグについては、https://cccabinet.jpn.org/bootstrap4/content/tables 参照 -->
@@ -41,36 +41,34 @@
                     {# コントローラで指定した $data["result"] は Twigでは result として扱えます #}
                     {# for文でresultの中の一次元目の配列をループで回す形となります #}
                     {# ループ処理中の1行はrowの中に入りますので、このループ中はrow.カラム名で情報を表示することが可能です #}
-                    <ul class="list-unstyled">
-                      <li class="m-1 mb-4" style="background-color:rgba(255,255,255,0.5);">
+                    <ul class="list-unstyled card" style="background-color:rgba(255,255,255,0.5);">
+                      <li class="m-1 mb-4">
                         <div class="row">
                           <div class="col-2 d-block mx-auto">
-                            <a class="nav-link" href="/item/list/{{ result.0.user_id }}">
+                            <a class="nav-link" href="/item/list/{{ result.user_id }}">
                               <img src="https://dummyimage.com/50x50/ccc/fff.png&text=img3" class="" alt="...">
                             </a>
                           </div>
                           <div class="col-10">
-                            <h5 class="mt-0 mb-1">{{ result.0.user_id }}</h5>
+                            <h5 class="mt-0 mb-1">{{ result.user_id }}</h5>
                             <div class="row">
                             <div class="col-2">
-                              <h5 class="mt-0 mb-1">{{ result.0.title }}</h5>
+                              <h5 class="mt-0 mb-1">{{ result.title }}</h5>
                             </div>
                             <div class="col-10 text-right">
-                              <h5 class="mt-0 mb-1">{{ result.0.date }}</h5>
+                              <h5 class="mt-0 mb-1">{{ result.date }}</h5>
                             </div>
                           </div>
                         </div>
                         <div class="d-block mx-auto ">
-                          <a href="/item/detail/{{result.0.title}}">
-                            <img width="400"  src="/assets/img/{{ result.0.image_url }}" class="" alt="...">
+                          <a href="/item/detail/{{result.title}}">
+                            <img width="400"  src="/assets/img/{{ result.image_url }}" class="" alt="...">
                           </a>
                         </div>
-                        <div class="d-block mx-auto">
-                          <h5 class="mt-0 mb-1">{{ result.0.detail }}
-                            大阪　東京　神奈川
-                          </h5>
-                        </div>
                       </li>
+                      <div class="card-body" style="background-color:rgba(255,255,255,1);">
+                        <p class="card-text">{{ result.detail }}</p>
+                      </div>
                     </ul>
                     </tbody>
                 </table>
